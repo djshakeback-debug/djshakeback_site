@@ -1,13 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import smtplib
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
 
-@app.route("/")
+GMAIL_USER = "djshakeback@gmail.com"
+GMAIL_APP_PASSWORD = "FloridaBoyDj352!"
+
+app.route("/")
 def home():
     return render_template("home.html")
+
 @app.route("/booking")
 def booking():
     return render_template("booking.html")
+
+
 if __name__ == "__main__":
     app.run()
 
