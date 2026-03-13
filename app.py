@@ -7,13 +7,52 @@ app = Flask(__name__)
 GMAIL_USER = "djshakeback@gmail.com"
 GMAIL_APP_PASSWORD = "FloridaBoyDj352!"
 
-app.route("/")
+@app.route("/")
 def home():
     return render_template("home.html")
 
 @app.route("/booking")
 def booking():
     return render_template("booking.html")
+
+def send_booking_email(name, email, phone, service, event_date, details):
+    subject = "New DJ Booking Request"
+
+    body = f"""
+New DJ Booking Request
+
+Name: {name}
+Email: {email}
+Phone: {phone}
+Service: {service}
+Event Date: {event_date}
+Details: {details}
+"""
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = GMAIL_USER
+    msg["To"] = GMAIL_USER
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(GMAIL_USER, GMAIL_APP_PASSWORD)
+        server.send_message(msg)
+@app.route("/submit-booking", methods=["POST"])
+def submit_booking():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    phone = request.form.get("phone")
+    service = request.form.get("service")
+    event_date = request.form.get("event_date")
+    details = request.form.get("details")
+
+    send_booking_email(name, email, phone, service, event_date, details)
+
+    return """
+    <h1>Booking Received!</h1>
+    <p>Thanks for booking DJ Shakeback.</p>
+    <a href='/booking'>Back to Booking</a>
+    """        
 
 
 if __name__ == "__main__":
