@@ -1,5 +1,2 @@
-flask
+Flask
 gunicorn
-@app.route9("/")
-def home():
-return "DJ Shakeback site is live"
