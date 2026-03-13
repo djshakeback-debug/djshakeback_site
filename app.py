@@ -1,12 +1,13 @@
-from flask import Flask, request
-import smtplib
-from email.mime.text import MIMEText
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# EMAIL SETTINGS
-GMAIL_USER = "djshakeback@gmail.com"
-GMAIL_APP_PASSWORD = "FloridaBoyDj352!"
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+if __name__ == "__main__":
+    app.run()
 
 
 def send_booking_email(name, email, phone, service, event_date, details):
