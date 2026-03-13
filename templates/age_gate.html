@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DJ Shakeback ENT</title>
+    <style>
+        body {
+            background:black;
+            color:white;
+            text-align:center;
+            font-family:Arial;
+            padding-top:120px;
+        }
+
+        button{
+            padding:15px 30px;
+            font-size:18px;
+            margin:10px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .yes{
+            background:#28a745;
+            color:white;
+        }
+
+        .no{
+            background:#dc3545;
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>DJ Shakeback ENT</h1>
+<h2>Age Verification</h2>
+
+<p>You must be 21+ to enter this website.</p>
+
+<form action="/verify" method="POST">
+
+<button class="yes" name="choice" value="yes">
+Yes I am 21+
+</button>
+
+<button class="no" name="choice" value="no">
+No
+</button>
+
+</form>
+
+</body>
+</html>
+

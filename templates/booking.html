@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book DJ Shakeback</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f4f4;
+            padding:40px;
+        }
+
+        .container{
+            max-width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        input, select, textarea{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:16px;
+        }
+
+        button{
+            background:black;
+            color:gold;
+            border:none;
+            padding:15px;
+            width:100%;
+            font-size:16px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Book DJ Shakeback</h1>
+
+<form action="/submit-booking" method="POST">
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Phone</label>
+<input type="text" name="phone">
+
+<label>Service</label>
+<select name="service">
+<option>DJ Services</option>
+<option>Photography</option>
+<option>Videography</option>
+<option>DJ + Photography</option>
+</select>
+
+<label>Event Date</label>
+<input type="date" name="event_date">
+
+<label>Event Details</label>
+<textarea name="details"></textarea>
+
+<button type="submit">Submit Booking Request</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
